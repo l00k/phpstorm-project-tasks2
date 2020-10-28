@@ -46,7 +46,6 @@ internal class MyProjectManagerListener : ProjectManagerListener {
                 processHandler.startNotify()
             }
             catch (exception: ExecutionException) {
-                var x = 1;
             }
         }
     }
