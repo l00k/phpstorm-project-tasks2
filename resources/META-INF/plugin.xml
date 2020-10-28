@@ -1,0 +1,44 @@
+<idea-plugin>
+  <id>com.your.company.unique.plugin.id</id>
+  <name>PhpStorm project tasks</name>
+  <version>1.0</version>
+  <vendor email="l00k+dev@protonmail.com">100k DEV</vendor>
+
+  <description><![CDATA[
+      PhpStorm project tasks
+      PhpStorm project tasks
+    ]]></description>
+
+  <change-notes><![CDATA[
+      PhpStorm project tasks
+      PhpStorm project tasks
+    ]]>
+  </change-notes>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="193.0"/>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceImplementation="com.l00k.phpstormprojecttasks.services.MyApplicationService"/>
+    <projectService serviceImplementation="com.l00k.phpstormprojecttasks.services.MyProjectService"/>
+
+    <applicationConfigurable parentId="tools" instance="com.l00k.phpstormprojecttasks.settings.AppSettingsConfigurable"
+                             id="org.intellij.sdk.settings.AppSettingsConfigurable"
+                             displayName="Project tasks"/>
+    <applicationService serviceImplementation="com.l00k.phpstormprojecttasks.settings.AppSettingsState"/>
+  </extensions>
+
+  <applicationListeners>
+    <listener class="com.l00k.phpstormprojecttasks.listeners.MyProjectManagerListener"
+              topic="com.intellij.openapi.project.ProjectManagerListener"/>
+  </applicationListeners>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
